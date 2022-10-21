@@ -19,7 +19,7 @@ const getHashCmd = new Command('deposit')
         const bridgeInstance = new ethers.Contract(args.bridge, constants.ContractABIs.Bridge.abi, args.wallet);
 
         const hashOfCentrifugeAsset = ethers.utils.keccak256(args.data);
-        const data = Helpers.createGenericDepositData(hashOfCentrifugeAsset);
+        const data = Helpers.createGenericDepositData(args.data);
 
         log(args, `Constructed generic data deposit:`)
         log(args, `  Resource Id: ${args.resourceId}`)
